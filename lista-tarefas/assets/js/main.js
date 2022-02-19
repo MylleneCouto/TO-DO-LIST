@@ -33,7 +33,12 @@ function criaBotaoApagar(li){
     const el = e.target;
     
    if (e.target.matches('.apagar') || e.target.parentNode.matches('.apagar')){
+
+    el.closest("li").setAttribute("class","tarefa-removida");
+    setTimeout(function(){
       el.closest("li").remove();
+    }, 200);
+
     }
 
   };
@@ -48,9 +53,14 @@ function criaTarefas(textotarefa){
   li = criali();
   li.innerHTML = `<div class='texto-tarefa'><input class='check' type="checkbox" id="${i}" name="${i}">
   <label for='${i}'>${textotarefa}</label></div>`;
-  tarefas.appendChild(li);
-  clearInput();
+  li.setAttribute("class","nova-tarefa");
+  setTimeout(function(){
+    tarefas.appendChild(li);
+  }, 10);
+
   criaBotaoApagar(li);
+  clearInput();
+
 
 }
 

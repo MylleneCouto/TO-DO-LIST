@@ -136,9 +136,53 @@ li:hover{
 
 i{
   font-size: 1em;
-  color: hsl(0, 0%, 40%);
+  color: hsl(0, 0%, 75%);
   cursor: pointer;
 }
+
+i:hover{
+  color: hsl(0, 0%, 18%);
+}
+
+li.nova-tarefa {
+  opacity: 0;
+  animation: nova-tarefa .3s linear forwards;
+}
+
+@keyframes nova-tarefa {
+  from {
+      opacity: 0;
+      transform: translateY(-200px);
+}
+
+  to {
+      opacity: 1;
+      transform : translateY(0);
+  }
+}
+
+li.tarefa-removida{
+  animation: tarefa-removida 1.5s linear forwards;
+
+}
+
+@keyframes tarefa-removida {
+  0% {
+      opacity: 1;
+}
+
+  100% {
+      opacity: 0;
+      transform: scale(0.00001);
+  }
+}
+
+
+
+
+
+
+
 
 @media only screen and (min-width: 700px) {
 
