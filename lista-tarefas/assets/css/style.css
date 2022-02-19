@@ -1,58 +1,125 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
-:root {
-  --primary-color: rgb(17, 86, 102);
-  --primary-color-darker: rgb(9, 48, 56);
-}
-
-* {
+*{
+  margin:0;
+  padding: 0;
   box-sizing: border-box;
   outline: 0;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background: var(--primary-color);
-  font-family: 'Open sans', sans-serif;
-  font-size: 1.3em;
-  line-height: 1.5em;
+.container{
+  margin: 1vh;
+  height: 99vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.container {
-  max-width: 640px;
-  margin: 50px auto;
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
+.tittle{
+  color: hsl(0, 0%, 40%);
+  font-size: 2em;
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-form input, form label, form button {
+.listatarefas{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.addtarefa{
+  width: 90%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-tarefa{
+  width: 90%;
+  height: 80%;
+  font-size: 2em;
+  color: hsl(0, 0%, 70%);
+  border: none;
+  appearance: none;
+  border-bottom: 2px solid hsl(0, 0%, 40%);
+}
+
+.tarefas{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.apagar{
+  border-radius: 50%;
+  height: 100%;
+  width: 30px;
+}
+
+.texto-tarefa{
   display: block;
   width: 100%;
-  margin-bottom: 10px;
 }
 
-form input {
-  font-size: 24px;
-  height: 50px;
-  padding: 0 20px;
-}
 
-form input:focus {
-  outline: 1px solid var(--primary-color);
-}
-
-form button {
-  border: none;
-  background: var(--primary-color);
-  color: #fff;
-  font-size: 18px;
-  font-weight: 700;
-  height: 50px;
+.check{
   cursor: pointer;
-  margin-top: 30px;
+  display: inline-block;
+  -webkit-appearance: none;
+  height: 1.2em;
+  width: 1.2em;
+  border: 1px solid hsl(0, 0%, 85%);
+  border-radius: 1px;
+  outline: none;
 }
 
-form button:hover {
-  background: var(--primary-color-darker);
+.check:hover{
+  box-shadow: 0 0 0 3px hsl(0, 0%, 92%);
+  border-color: hsl(0, 0%, 55%);
+}
+
+.check:focus{
+  box-shadow: 0 0 0 3px hsl(0, 0%, 92%);
+  border-color: hsl(0, 0%, 55%);
+}
+
+
+.check:checked{
+  background-color: hsl(0, 0%, 40%);
+  border-color: hsl(0, 0%, 40%);
+}
+
+.check:checked + label{
+  text-decoration: line-through;
+  color: hsl(0, 0%, 70%);
+  font-weight: 600;
+}
+
+label{
+  display: inline-block;
+  width: 90%;
+  cursor:pointer;
+}
+
+li{
+  width: 98%;
+  padding: 2%;
+  display: flex;
+  border-bottom: 2px solid hsl(0, 0%, 93%);
+  justify-content: space-between;
+  font-size: 1.5em;
+  list-style: none;
+}
+
+i{
+  font-size: 1em;
+  color: hsl(0, 0%, 40%);
+  cursor: pointer;
 }

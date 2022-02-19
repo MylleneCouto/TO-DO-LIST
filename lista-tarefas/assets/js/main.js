@@ -1,6 +1,7 @@
 const tarefas = document.querySelector(".tarefas");
 const inputtarefa = document.querySelector(".input-tarefa");
 const btntarefa = document.querySelector(".btn-tarefa")
+i = 0;
 
 inputtarefa.addEventListener('keypress', function(e) {
   if (e.keyCode === 13) {
@@ -21,19 +22,32 @@ function clearInput(){
   inputtarefa.focus();
 }
 
+
 function criaBotaoApagar(li){
 
-  li.innerText += " ";
-  botaoapagar = document.createElement("button");
-  botaoapagar.innerText = "Apagar";
+  botaoapagar = document.createElement("div");
+  botaoapagar.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
   botaoapagar.setAttribute("class", "apagar")
+  botaoapagar.onclick = function(e){
+    
+    const el = e.target;
+    
+   if (e.target.matches('.apagar') || e.target.parentNode.matches('.apagar')){
+      el.closest("li").remove();
+    }
+
+  };
+
   li.appendChild(botaoapagar);
 }
 
-function criaTarefas(textotarefa){
 
+
+function criaTarefas(textotarefa){
+  i += 1
   li = criali();
-  li.innerText = textotarefa;
+  li.innerHTML = `<div class='texto-tarefa'><input class='check' type="checkbox" id="${i}" name="${i}">
+  <label for='${i}'>${textotarefa}</label></div>`;
   tarefas.appendChild(li);
   clearInput();
   criaBotaoApagar(li);
@@ -48,11 +62,11 @@ btntarefa.addEventListener("click", function(e){
   
 })
 
-document.addEventListener("click", function(e){
+function apagar (){
 
   const el = e.target;
 
   if (el.classList.contains("apagar")){
     el.parentElement.remove();
   }
-})
+}
